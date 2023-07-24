@@ -1,13 +1,26 @@
-$primary : #150080;
+$primary : #1E7CFA;
 $accent: #d08642;
-$bg: #ffffff;
+$bg: #1E72E2;
 $bg-accent: #e7e8e9;
 $disabled: #9c9c9c;
 $foreground: #2d264b;
 
+
+@keyframes slide {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
 body{
     font-family: monospace;
-    background: linear-gradient(0deg, $primary 0.03%, $accent);
+    background: $primary;
+    background-image: url("./assets/1.png");
+    background-size: cover;
+    background-repeat: repeat;
     color: $foreground;
     display: flex;
     justify-content: center;
@@ -21,11 +34,13 @@ body{
     border-radius: 4px;
     margin-top: 100px;
     padding: 30px 60px;
+    animation: slide 2s ease-in-out infinite alternate;
     box-sizing: border-box;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.35);
     .active-question-no{
         font-size: 32px;
         font-weight: 500;
-        color: $primary;
+        color: $bg-accent;
     }
 
     .total-question{
@@ -37,6 +52,7 @@ body{
         font-size: 16px;
         font-weight: 500;
         margin: 0;
+        color: #F0C419;
     }
     ul {
         margin-top: 20px;
@@ -44,9 +60,9 @@ body{
         li {
             text-decoration: none;
             list-style: none;
-            color: $foreground;
+            color: $accent;
             font-size: 16px;
-            background: $bg;
+            background: $bg-accent;
             border: 1px solid $disabled;
             border-radius: 16px;
             padding: 11px;
@@ -57,7 +73,7 @@ body{
         .selected-answer{
             background: $primary;
             border: 1px solid $accent;
-            color: $bg;
+            color: #F0C419;
         }
     }
 
@@ -66,10 +82,11 @@ body{
         justify-content: flex-end;    
     }
     button{
-        background: linear-gradient(0deg , $primary 0.03%, $accent);
+        // background: linear-gradient(0deg , $primary 0.03%, $accent);
+        background: #3B4F69;
+        color: #d08642;
         border-radius: 9px;
         font-size: 18px;
-        color: $bg;
         padding: 10px 42px;
         outline: none;
         border: none;
@@ -78,7 +95,7 @@ body{
 
         &:disabled{
             background: $bg-accent;
-            color: $disabled;
+            color: $bg;
             cursor: not-allowed;
         }
     }
@@ -95,7 +112,7 @@ body{
             font-size: 16px;
             font-weight: 500;
             span {
-                color: $primary;
+                color: $accent;
             }
         }
     }
